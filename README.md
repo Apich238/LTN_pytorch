@@ -1,4 +1,5 @@
-# LTN_pytorch
-Implementation of Logic Tensor Network through pytorch
+# ltn_pytorch
 
-trying to follow 10.1016/j.artint.2021.103649
+Implementation of Logic Tensor Network with pytorch. 
+
+Trying to follow 10.1016/j.artint.2021.103649
