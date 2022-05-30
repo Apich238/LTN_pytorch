@@ -25,22 +25,75 @@ class A_gr(torch.nn.Module):
         return x
 
 
+class FormulaPart:
+    pass
+
+
+class Predicate(FormulaPart):
+    pass
+
+
+class Function(FormulaPart):
+    pass
+
+
+class Variable(FormulaPart):
+    pass
+
+
+class Quantifier(FormulaPart):
+    pass
+
+
+class ALL(Quantifier):
+    pass
+
+
+class ANY(Quantifier):
+    pass
+
+
+class operation(FormulaPart):
+    pass
+
+
+class AND(operation):
+    pass
+
+
+class OR(operation):
+    pass
+
+
+class NOT(operation):
+    pass
+
+class THEN(operation):#implication
+    pass
+
+class Call(FormulaPart):
+    pass
+
+class Constant(FormulaPart):
+    pass
+
+
 # domains
 K.domain('point', 'fp32', (2,))
 # vars
 # K.variable('x', 'point', )
 
-K.variable('x_pos', 'point')
-K.variable('x_neg', 'point')
+K.variable(Variable('x_pos', 'point'))
+K.variable(Variable('x_neg', 'point'))
 # constants
 # K.constant(name, domain, grounding)
 # functions
 # K.function(name, domain_in, domain_out, grounding)
 # predicates
-K.predicate('A', ['point'], A_gr(), True)
+K.predicate(Predicate('A', ['point']), A_gr(), True)
 # axioms
-K.axiom('FORALL(x_pos):A(x_pos)')
-K.axiom('FORALL(x_neg):!A(x_neg)')
+K.axiom(ALL('x_pos', Call('A'['x_pos'])))#'FORALL(x_pos):A(x_pos)')
+K.axiom(ALL('x_neg', NOT(Call('A'['x_neg']))))#'FORALL(x_neg):!A(x_neg)')
 
 # optimizer
 opt = torch.optim.Adam(K.parameters())
