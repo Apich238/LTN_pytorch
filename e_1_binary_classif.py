@@ -25,58 +25,6 @@ class A_gr(torch.nn.Module):
         return x
 
 
-class FormulaPart:
-    pass
-
-
-class Predicate(FormulaPart):
-    pass
-
-
-class Function(FormulaPart):
-    pass
-
-
-class Variable(FormulaPart):
-    pass
-
-
-class Quantifier(FormulaPart):
-    pass
-
-
-class ALL(Quantifier):
-    pass
-
-
-class ANY(Quantifier):
-    pass
-
-
-class operation(FormulaPart):
-    pass
-
-
-class AND(operation):
-    pass
-
-
-class OR(operation):
-    pass
-
-
-class NOT(operation):
-    pass
-
-class THEN(operation):#implication
-    pass
-
-class Call(FormulaPart):
-    pass
-
-class Constant(FormulaPart):
-    pass
-
 
 # domains
 K.domain('point', 'fp32', (2,))

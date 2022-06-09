@@ -35,7 +35,7 @@ class Theory(torch.nn.Module):
         if trainable:
             self.trainable.add(name)
 
-    def axiom(self, formula):
+    def add_axiom(self, formula):
         pass
 
     def parameters(self, **kwargs):
@@ -63,3 +63,68 @@ class Theory(torch.nn.Module):
 
     def EvaluateFormula(self, formula, **vars):
         pass
+
+
+
+class FormulaPart:
+    pass
+
+
+class Predicate(FormulaPart):
+
+    def __init__(self,name,grounding):
+        pass
+
+    def __call__(self, *args, **kwargs):
+        return self
+
+
+class Function(FormulaPart):
+    pass
+
+
+class Variable(FormulaPart):
+    def __init__(self,name):
+        pass
+
+
+class Quantifier(FormulaPart):
+
+    def __init__(self,x,y):
+        pass
+
+    def __call__(self,x):
+        return self
+
+
+class ALL(Quantifier):
+    pass
+
+
+class ANY(Quantifier):
+    pass
+
+
+class operation(FormulaPart):
+    pass
+
+
+class AND(operation):
+    pass
+
+
+class OR(operation):
+    pass
+
+
+class NOT(operation):
+    pass
+
+class IMPLY(operation):
+    pass
+
+class Call(FormulaPart):
+    pass
+
+class Constant(FormulaPart):
+    pass
