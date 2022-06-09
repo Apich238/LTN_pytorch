@@ -4,6 +4,8 @@ Implementation of Logic Tensor Network with pytorch.
 
 Trying to follow 10.1016/j.artint.2021.103649
 
+examples based on https://github.com/logictensornetworks/logictensornetworks/tree/master/examples
+
 # Features to implement
 
 - parsing axioms (str with real logic -> torch model - like object)
